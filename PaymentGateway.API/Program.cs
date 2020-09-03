@@ -15,6 +15,7 @@ namespace PaymentGateway.API
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Startting application");
             Log.Logger = new LoggerConfiguration()
             .Enrich.FromLogContext()
             .WriteTo.File(new RenderedCompactJsonFormatter(), "/logs/log.ndjson")
@@ -33,6 +34,8 @@ namespace PaymentGateway.API
             {
                 Log.CloseAndFlush();
             }
+
+            Console.WriteLine("application stopped");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

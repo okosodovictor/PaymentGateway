@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PaymentGateway.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PaymentsController : ControllerBase

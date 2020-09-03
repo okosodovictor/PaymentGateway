@@ -27,6 +27,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Security", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Banks", "PaymentGateway.Banks\PaymentGateway.Banks.csproj", "{E12FA002-D2D9-4B53-A5AE-7B8BF3C0E9FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A9055E0-53BB-48DD-9CFE-82BFBE780353}"
+	ProjectSection(SolutionItems) = preProject
+		docker\payment.Dockerfile = docker\payment.Dockerfile
+		docker\security.Dockerfile = docker\security.Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,7 +80,7 @@ Global
 		{61002ED1-E57A-41D0-9B45-960BB1514314} = {4B958970-2976-4584-83DB-A25A6300F581}
 		{D6A08E00-F106-4FF2-AADB-CAFD3935DC74} = {6B3FA934-F03C-4F67-A803-40089EC95557}
 		{4304EC73-DD32-4A14-8DAA-9E9F1464117D} = {2F98D286-36C3-4BC6-AC7F-2666F5F9E2E0}
-		{AE924C89-EFFB-42C8-88A9-21DD16F1FEA8} = {4B958970-2976-4584-83DB-A25A6300F581}
+		{AE924C89-EFFB-42C8-88A9-21DD16F1FEA8} = {6B3FA934-F03C-4F67-A803-40089EC95557}
 		{E12FA002-D2D9-4B53-A5AE-7B8BF3C0E9FF} = {4B958970-2976-4584-83DB-A25A6300F581}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
