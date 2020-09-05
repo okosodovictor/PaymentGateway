@@ -19,6 +19,9 @@ The Payment gateway API expose two REST endpoint
 
 Start by running from visual studio 2019 the security project as well as payment gateway API project. Generate Jwt bearer token from security service Url to access the  resources in Paymentgateway API.
 
+Swagger URl: 
+/swagger/index.html
+
 Sample request:
 
 POST Request:
