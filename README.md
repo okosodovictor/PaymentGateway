@@ -21,6 +21,7 @@ Start by running from visual studio 2019 the security project as well as payment
 
 Swagger URl: 
 /swagger/index.html
+Token endpoint: /connect/token
 
 Sample request:
 
