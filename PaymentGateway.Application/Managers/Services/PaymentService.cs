@@ -51,9 +51,9 @@ namespace PaymentGateway.Application
                 ExpiryMonth = model.ExpiryMonth,
                 ExpiryYear = model.ExpiryYear,
                 Amount = model.Amount,
-                Currency = model.Currency,                  
+                Currency = model.Currency,
                 Status = PaymentStatus.Pending,
-                MerchantId= merchant.MerchantId
+                MerchantId = merchant.MerchantId
             };
 
             await _paymentRepository.Create(payment);
@@ -83,7 +83,7 @@ namespace PaymentGateway.Application
         }
 
         public Task<Payment> GetPaymentByReference(string paymentReference)
-        {         
+        {
             return _paymentRepository.GetPaymentByPaymentReference(paymentReference);
         }
     }

@@ -1,0 +1,38 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  namespace: monitoring
+  name: payment-monitor
+  labels:
+    prometheus: monitor
+spec:
+  selector:
+    matchLabels:
+      app: payment
+
+  namespaceSelector:
+    matchNames:
+    - payment-gateway
+  endpoints:
+  - path: /metrics
+    port: http
+    interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: security-monitor
+  namespace: monitoring
+  labels:
+    prometheus: monitor
+spec:
+  selector:
+    matchLabels:
+      app: security
+  namespaceSelector:
+    matchNames:
+    - payment-gateway
+  endpoints:
+  - path: /metrics
+    port: http
+    interval: 15s

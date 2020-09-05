@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: payment-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    acme.cert-manager.io/http01-edit-in-place: "true"
+spec:
+  tls:
+  - hosts:
+    - payment.kubebridge.com
+    - security.kubebridge.com
+    secretName: tls-payment-kubebridge
+  rules:
+  - host: payment.kubebridge.com
+    http:
+      paths:
+      - backend:
+          serviceName: payment
+          servicePort: 80
+  - host: security.kubebridge.com
+    http:
+      paths:
+      - backend:
+          serviceName: security
+          servicePort: 80

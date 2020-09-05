@@ -16,16 +16,18 @@ namespace PaymentGateway.API
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Startting application");
             Log.Logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .WriteTo.File(new RenderedCompactJsonFormatter(), "/logs/log.ndjson")
-            .CreateLogger();
-            
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.File(new RenderedCompactJsonFormatter(), "/logs/log.ndjson")
+                .CreateLogger();
+
+            Log.Information("Starting application");
+
             try
             {
-                Log.Information("Starting up");
                 CreateHostBuilder(args).Build().Run();
+                Log.Information("Shutting Down");
             }
             catch (Exception ex)
             {
@@ -36,7 +38,7 @@ namespace PaymentGateway.API
                 Log.CloseAndFlush();
             }
 
-            Console.WriteLine("application stopped");
+            Console.WriteLine("Application Stopped");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -1,0 +1,21 @@
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+grafana:
+  adminPassword: told-course-learn-color
+
+prometheus-node-exporter:
+  service:
+    port: 30206
+    target: 30206
+
+kubeEtcd:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
