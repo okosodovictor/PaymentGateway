@@ -8,10 +8,10 @@ namespace PaymentGateway.Application.Business
     public class PaymentRequest: Model
     {
         [Required]
-        public Guid MerchantId { get; set; }
+        public Guid? MerchantId { get; set; }
         [Required]
         public string CardHolderName { get; set; }
-        [Required]
+        [Required, MinLength(16), MaxLength(16)]
         [RegularExpression(@"([0-9]{4}\s?){4}", ErrorMessage = "Invalid Credit Card Number")]
         public string CardNumber { get; set; }
         [Required, MinLength(3), MaxLength(3)]

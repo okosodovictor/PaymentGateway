@@ -15,8 +15,8 @@ namespace PaymentGateway.Application.Business
         public Result Validate()
         {
             var errors = new List<ValidationResult>();
-            var ctx = new ValidationContext(this, null, null);
-            var isValid = Validator.TryValidateObject(this, ctx, errors);
+            var ctx = new ValidationContext(this);
+            var isValid = Validator.TryValidateObject(this, ctx, errors, true);
             return new Result(isValid, errors);
         }
 

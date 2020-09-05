@@ -36,7 +36,7 @@ namespace PaymentGateway.Application
                 throw new ArgumentException("Payment Request is Invalid: " + errorMessage);
             }
 
-            var merchant = await _merchantRepo.GetMerchantById(model.MerchantId);
+            var merchant = await _merchantRepo.GetMerchantById(model.MerchantId.Value);
             if (merchant == null)
             {
                 throw new NotFoundException("Invalid Merchant Id");
@@ -68,9 +68,11 @@ namespace PaymentGateway.Application
                 Amount = model.Amount,
             };
 
-            var response = _bankClient.ProcessPayment(bankRequest);
+            //Make call to bank
+            var response = await _bankClient.ProcessPayment(bankRequest);
             payment.Reference = response.Reference;
             payment.Status = response.Status;
+
             await _paymentRepository.Update(payment);
 
             return new PaymentResponse
@@ -81,7 +83,7 @@ namespace PaymentGateway.Application
         }
 
         public Task<Payment> GetPaymentByReference(string paymentReference)
-        {
+        {         
             return _paymentRepository.GetPaymentByPaymentReference(paymentReference);
         }
     }
