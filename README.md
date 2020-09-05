@@ -24,14 +24,14 @@ Sample request:
 POST Request:
 
 {
-  "merchantId": "9466ACB3-26AD-464D-8152-BBBF20C442C4",
-  "cardHolderName": "test test",
-  "cardNumber": "1234123456345678",
-  "cardCvv": "345",
-  "expiryYear": "24",
-  "expiryMonth": "02",
-  "amount": 200,
-  "currency": "USD"
+  "merchantId": "?",
+  "cardHolderName": "?",
+  "cardNumber": "?",
+  "cardCvv": "?",
+  "expiryYear": "?",
+  "expiryMonth": "?",
+  "amount": ?,
+  "currency": "?"
 }
 
 Response:
