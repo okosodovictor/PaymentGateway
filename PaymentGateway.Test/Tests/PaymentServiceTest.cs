@@ -121,11 +121,13 @@ namespace PaymentGateway.Test.Tests
                 Description = "test test"
             }));
 
-            _bankClient.Setup(x => x.ProcessPayment(It.IsAny<BankRequest>())).Returns(Task.FromResult(new BankResponse
-            {
-                Reference = "T0234567",
-                Status = PaymentStatus.Success
-            }));
+            _bankClient
+                .Setup(x => x.ProcessPayment(It.IsAny<BankRequest>()))
+                .Returns(Task.FromResult(new BankResponse
+                {
+                    Reference = "T0234567",
+                    Status = PaymentStatus.Success
+                }));
 
             //Act
             var payService = new PaymentService(_paymentRepository.Object, _merchantRepo.Object, _encryption.Object, _bankClient.Object);
